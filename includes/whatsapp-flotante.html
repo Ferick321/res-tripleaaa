@@ -1,0 +1,80 @@
+<!-- Botón Flotante de WhatsApp -->
+<a href="https://wa.me/+593987646410" class="whatsapp-float" target="_blank">
+    <img src="image/icono_watsap1.png" alt="WhatsApp">
+</a>
+
+<!-- Botón para volver al menú principal -->
+<a href="index.html" class="volver-menu-float">
+    <i class="bi bi-house"></i>
+</a>
+
+<!-- Loading spinner -->
+<div id="loading-spinner" class="loading-spinner">
+    <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<style>
+    .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        z-index: 1000;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        animation: pulse-whatsapp 2s infinite;
+    }
+
+    .volver-menu-float {
+        position: fixed;
+        bottom: 110px;  /* Aumentado de 100px a 110px para mayor separación */
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--secondary-color) 0%, #34495e 100%);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(52, 73, 94, 0.3);
+        z-index: 998;
+        transition: all 0.3s ease;
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-float, .volver-menu-float {
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .volver-menu-float {
+            bottom: 90px;  /* Aumentado de 80px a 90px para mayor separación */
+        }
+    }
+
+    @media (max-width: 576px) {
+        .volver-menu-float {
+            bottom: 90px;  /* Aumentado de 80px a 90px para mayor separación */
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-float {
+            width: 45px;
+            height: 45px;
+        }
+    }
+</style>

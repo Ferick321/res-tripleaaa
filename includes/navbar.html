@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+        <!-- Logo con salchichas y nombre -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <span class="brand-text">Triple AAA</span>
+        </a>
+        
+        <!-- Botón hamburguesa -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="index.html">
+                        <div class="nav-icon-container">
+                            <i class="bi bi-house-door"></i>
+                        </div>
+                        <span class="nav-link-text">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="postres.html">
+                        <div class="nav-icon-container">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <span class="nav-link-text">Postres</span>
+                    </a>
+                </li>
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="bebidas.html">
+                        <div class="nav-icon-container">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <span class="nav-link-text">Bebidas</span>
+                    </a>
+                </li>
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="botellones.html">
+                        <div class="nav-icon-container">
+                            <span class="plus-icon">+</span> <!-- Símbolo + como texto -->
+                        </div>
+                        <span class="nav-link-text">Botellones</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown mx-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="serviciosDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="nav-icon-container">
+                            <i class="bi bi-gear"></i>
+                        </div>
+                        <span class="nav-link-text">Servicios</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                        <li><a class="dropdown-item" href="servicio-tecnico.html">
+                            <i class="bi bi-tools me-2"></i>Servicio Técnico TI
+                        </a></li>
+                        <li><a class="dropdown-item" href="creacion-desarrollo.html">
+                            <i class="bi bi-truck me-2"></i>Transporte/Mudansas
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="nosotros.html">
+                            <i class="bi bi-info-circle me-2"></i>Nosotros
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Elementos del lado derecho -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item me-2">
+                    <a class="nav-link cart-icon" href="carrito.html">
+                        <div class="position-relative">
+                            <i class="bi bi-cart3"></i>
+                            <span id="cart-icon-count" class="badge rounded-pill bg-danger">0</span>
+                        </div>
+                        <span class="cart-text d-none d-lg-inline">Carrito</span>
+                    </a>
+                </li>
+                <!--Suspendo por el momento el cerrar seccion
+                <li class="nav-item">
+                    <a class="nav-link btn-logout" href="logout.php">
+                        <i class="bi bi-box-arrow-right"></i> 
+                        <span class="logout-text d-none d-md-inline">Cerrar Sesión</span>
+                    </a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

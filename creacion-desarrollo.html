@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio de transporte</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dev-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        .dev-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .dev-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .dev-bg {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .process-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        .process-step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            font-weight: 500;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .whatsapp-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <div class="dev-bg py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Servicio de Transporte</h1>
+                    <p class="lead mb-4">Todo lo que necesitas, en un solo lugar <br>
+                        contamos con servicios confiables y eficientes:<br>
+                        🚛 Transporte en camión de 2.8 toneladas ideal para mudanzas y carga de productos.<br>
+                        🛵 Motorizado ágil para entregas rápidas y recados en la ciudad-MotoTaxy.<br>
+                        🚖 Taxi cómodo y seguro para tus traslados diarios.<br>
+                    
+                        
+                        Con nosotros, encontrarás atención personalizada, responsabilidad y compromiso en cada entrega o servicio.<br>
+                        
+                        📞 ¡Contáctanos hoy y descubre por qué somos tu mejor opción!</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="image/tuning.webp" 
+                         alt="Desarrollo Web" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services Section -->
+    <div class="container my-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card dev-card h-100">
+                    <img src="image/moto.jpg" 
+                         class="card-img-top" alt="Servicio de Moto">
+                    <div class="card-body">
+                        <h5 class="card-title">🛵 Servicio de Moto</h5>
+                        <p class="card-text">Rápido y eficiente servicio en moto para entregas
+                             y mandados.<br> Ideal para recorridos cortos, entregas urgentes y traslados ágiles dentro de la ciudad.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary">Efectivo</span>
+                            <span class="badge bg-secondary">Transferencias</span>
+                        </div>
+                        <button class="btn whatsapp-btn w-100" onclick="contactWhatsApp('moto')">
+                            <i class="bi bi-whatsapp"></i> Contactar por WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card dev-card h-100">
+                    <img src="image/taxy.jpg" 
+                         class="card-img-top" alt="Servicio de Taxi">
+                    <div class="card-body">
+                        <h5 class="card-title">🚖 Servicio de Taxi</h5>
+                        <p class="card-text">Servicio de taxi cómodo y seguro para 
+                            tus traslados diarios. Chofer responsable, atención amable y tarifas accesibles. ¡Viaja tranquilo y a tiempo</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary">Efectivo</span>
+                            <span class="badge bg-secondary">Transferencias</span>
+                        </div>
+                        <button class="btn whatsapp-btn w-100" onclick="contactWhatsApp('taxi')">
+                            <i class="bi bi-whatsapp"></i> Contactar por WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card dev-card h-100">
+                    <img src="image/camion.jpg" 
+                         class="card-img-top" alt="Servicio de Camión">
+                    <div class="card-body">
+                        <h5 class="card-title">🚛 Servicio de Camión</h5>
+                        <p class="card-text">Transporte de carga confiable con camión de 2.8 toneladas, ideal para mudanzas, 
+                            distribución de mercadería o traslado de productos en volumen. Servicio puntual, seguro 
+                            y con total responsabilidad en cada envío.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-primary">Efectivo</span>
+                            <span class="badge bg-secondary">Transferencia</span>
+                        </div>
+                        <button class="btn whatsapp-btn w-100" onclick="contactWhatsApp('camion')">
+                            <i class="bi bi-whatsapp"></i> Contactar por WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Elemento flotante solo para volver al menú -->
+    <a href="index.html" class="volver-menu-float">
+        <i class="bi bi-house"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script>
+        // Cargar navbar
+        fetch('includes/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        // Cargar footer
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+            
+        // Función para redirigir a WhatsApp según el servicio
+        function contactWhatsApp(service) {
+            let phoneNumber = '';
+            let message = '';
+            
+            switch(service) {
+                case 'moto':
+                    phoneNumber = '593978629854'; // Reemplaza con el número real
+                    message = 'Hola, me interesaría el servicio de moto para: *por favor indique detalles del servicio requerido, dirección y horario preferido*. Gracias!';
+                    break;
+                case 'taxi':
+                    phoneNumber = '593992924197'; // Reemplaza con el número real
+                    message = 'Hola, me interesaría el servicio de taxi para: *por favor indique dirección de recogida, destino, fecha y hora del servicio*. Gracias!';
+                    break;
+                case 'camion':
+                    phoneNumber = '593963968161'; // Reemplaza con el número real
+                    message = 'Hola, me interesaría el servicio de camión para: *por favor indique tipo de carga, direcciones de recogida y entrega, fecha y horario preferido*. Gracias!';
+                    break;
+                default:
+                    phoneNumber = 'NUMERO_DEFAULT'; // Número por defecto
+                    message = 'Hola, me interesaría información sobre sus servicios de transporte. Gracias!';
+            }
+            
+            // Codificar el mensaje para URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Redirigir a WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>

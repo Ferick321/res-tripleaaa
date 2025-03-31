@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido - Triple AAA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container mt-5 pt-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="bi bi-credit-card me-2"></i>Finalizar Pedido</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="form-checkout">
+                            <h5 class="mb-3">Información de Entrega</h5>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Tipo de Entrega</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="entrega" id="recoger" value="local" checked>
+                                    <label class="form-check-label" for="recoger">
+                                        Recoger en local
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="entrega" id="domicilio" value="domicilio">
+                                    <label class="form-check-label" for="domicilio">
+                                        Envío a domicilio (+$1.50)
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3" id="div-direccion" style="display: none;">
+                                <label for="direccion" class="form-label">Dirección Completa</label>
+                                <textarea class="form-control" id="direccion" rows="3"></textarea>
+                            </div>
+                            
+                            <hr class="my-4">
+                            
+                            <h5 class="mb-3">Método de Pago</h5>
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pago" id="efectivo" value="efectivo" checked>
+                                    <label class="form-check-label" for="efectivo">
+                                        Efectivo al recibir
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="pago" id="transferencia" value="transferencia">
+                                    <label class="form-check-label" for="transferencia">
+                                        Transferencia bancaria
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="notas" class="form-label">Notas adicionales</label>
+                                <textarea class="form-control" id="notas" rows="3" placeholder="Indicaciones especiales, alergias, etc."></textarea>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="bi bi-send-check me-2"></i>Enviar Pedido
+                                </button>
+                                <a href="carrito.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left me-2"></i>Volver al Carrito
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Elementos flotantes -->
+    <div id="flotantes-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script type="module">
+        import { loadComponents } from './js/helpers.js';
+        import Carrito from './js/carrito.js';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponents();
+            
+            const carrito = new Carrito();
+            
+            // Mostrar/ocultar campo de dirección según tipo de entrega
+            document.querySelectorAll('input[name="entrega"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const divDireccion = document.getElementById('div-direccion');
+                    if (this.value === 'domicilio') {
+                        divDireccion.style.display = 'block';
+                    } else {
+                        divDireccion.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Manejar envío del formulario
+            document.getElementById('form-checkout').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Validación básica
+                if (document.querySelector('input[name="entrega"]:checked').value === 'domicilio' && 
+                    !document.getElementById('direccion').value.trim()) {
+                    alert('Por favor ingrese una dirección para la entrega a domicilio');
+                    return;
+                }
+                
+                // Mostrar spinner de carga
+                const spinner = document.getElementById('loading-spinner');
+                if (spinner) spinner.style.display = 'flex';
+                
+                // Simular envío
+                setTimeout(() => {
+                    if (spinner) spinner.style.display = 'none';
+                    window.location.href = 'confirmacion.html';
+                }, 1500);
+            });
+        });
+    </script>
+    <!-- Carrito flotante para móviles -->
+    <button class="carrito-flotante" id="btn-carrito-flotante">
+        <i class="bi bi-cart3"></i>
+        <span class="badge">0</span>
+    </button>
+</body>
+</html>

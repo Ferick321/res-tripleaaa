@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte TécnicI - Triple AAA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .service-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .tech-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+        .contact-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+    </style>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <div class="tech-bg py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Soporte Técnico TI Profesional</h1>
+                    <p class="lead mb-4">Soluciones tecnológicas confiables para mantener tu Hardware y Sofware en optimas condiciones.</p>
+                    <a href="#contacto" class="btn btn-primary btn-lg px-4 me-2">
+                        <i class="bi bi-chat-left-text me-2"></i>Contáctanos
+                    </a>
+                    <a href="#servicios" class="btn btn-outline-secondary btn-lg px-4">
+                        <i class="bi bi-gear me-2"></i>Nuestros Servicios
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="image/tecnico.png" 
+                         alt="Servicio Técnico" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Servicios Section -->
+    <div class="container py-5" id="servicios">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-gradient">Nuestros Servicios TI</h2>
+            <p class="lead text-muted">Soluciones personalizadas para tus necesidades tecnológicas</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="tech-icon">
+                            <i class="bi bi-pc-display-horizontal"></i>
+                        </div>
+                        <h4 class="mb-3">Soporte Técnico</h4>
+                        <p class="text-muted">Resolución rápida de problemas de hardware y software para mantener tus sistemas funcionando.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Diagnóstico remoto</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Reparación presencial</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Mantenimiento preventivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="tech-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h4 class="mb-3">Seguridad Informática</h4>
+                        <p class="text-muted">Protección integral contra amenazas cibernéticas y Virus.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Antivirus Empresariales</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Copias de seguridad</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Auditorías de seguridad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="tech-icon">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                        </div>
+                        <h4 class="mb-3">Mejoramiento de Hardware Software</h4>
+                        <p class="text-muted">Actualizar el hardware de una PC es clave para mantener su rendimiento óptimo. Componentes como la memoria RAM, el disco duro</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Discos SSD y Mvm</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Tarjetas graficas y Red</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Ofice Completo licencia permanente</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Reinstalacios SO Windows 7/8/10/11</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="tech-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <h4 class="mb-3">Redes y Conectividad</h4>
+                        <p class="text-muted">Proteccion de paginas indevidas para jovenes y niños.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Accesos Restringidos</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> VPN seguras</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Monitoreo 24/7</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="tech-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h4 class="mb-3">Asesoría TI</h4>
+                        <p class="text-muted">Consultoría especializada para optimizar tu infraestructura tecnológica.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Planes de tecnología</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Presupuestos</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Migración tecnológica</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Capacitación</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card service-card h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="tech-icon">
+                            <i class="bi bi-database"></i>
+                        </div>
+                        <h4 class="mb-3">Recuperación de Datos</h4>
+                        <p class="text-muted">Recuperamos tu información crítica en caso de fallos o accidentes.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Discos duros dañados</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> RAID fallido</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Eliminación accidental</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> Daños por virus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacto Section -->
+    <div class="tech-bg py-5" id="contacto">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">¿Necesitas asistencia técnica?</h2>
+                    <p class="lead mb-5">Contáctanos para una consulta gratuita y cotización personalizada.</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <a href="https://wa.me/593963178367?text=Hola,%20estoy%20interesado%20en%20los%20servicios%20de%20Soporte%20Técnico%20TI.%20¿Podrían%20brindarme%20más%20información?" class="text-decoration-none" target="_blank">
+                                <div class="p-4 bg-white rounded-3 shadow-sm h-100 contact-card">
+                                    <i class="bi bi-telephone text-primary mb-3" style="font-size: 2rem;"></i>
+                                    <h5>Llamanos</h5>
+                                    <p class="mb-0">Whatsapp</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <a href="mailto:skrillexlmntrix@outlook.com?subject=Consulta%20sobre%20Servicios%20TI&body=Hola,%20estoy%20interesado%20en%20sus%20servicios%20de%20Soporte%20Técnico.%20¿Podrían%20brindarme%20más%20información?" class="text-decoration-none">
+                                <div class="p-4 bg-white rounded-3 shadow-sm h-100 contact-card">
+                                    <i class="bi bi-envelope text-primary mb-3" style="font-size: 2rem;"></i>
+                                    <h5>Email</h5>
+                                    <p class="mb-0">DereckDev@soport.com</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="p-4 bg-white rounded-3 shadow-sm h-100">
+                                <i class="bi bi-clock text-primary mb-3" style="font-size: 2rem;"></i>
+                                <h5>Horario</h5>
+                                <p class="mb-0">Lun-Vie: 8am - 6pm</p>
+                                <p class="mb-0">Emergencias 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Elemento flotante solo para volver al menú -->
+    <a href="index.html" class="volver-menu-float">
+        <i class="bi bi-house"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script src="js/scripts.js"></script>
+    <!-- Cargar componentes -->
+    <script>
+        // Cargar navbar
+        fetch('includes/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        // Cargar footer
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

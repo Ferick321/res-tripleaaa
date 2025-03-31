@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Triple AAA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("image/fondosalchicha.jpg"); /* Cambia la ruta según tu carpeta */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container mt-5 pt-4">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-gradient">Bienvenidos a Triple AAA</h1>
+            <p class="lead">La mejor comida rápida con ingredientes frescos y sabores auténticos</p>
+        </div>
+
+        <!-- Sección de Productos -->
+        <div class="row g-4">
+         <!-- Producto 1 -->
+         <div class="col-md-6 col-lg-4">
+            <div class="card menu-item h-100">
+                <img src="image/mollejas.jpg" class="card-img-top" alt="mollejas">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="card-title">Mollejas Asadas</h5>
+                        <span class="badge bg-success">LUNES - $2.00</span>
+                    </div>
+                    <p class="card-text">Deliciosas mollejas bien sazonadas, asadas 😋 para los amantes de los sabores intensos.</p>
+                    <button class="btn btn-primary agregar-carrito" 
+                            data-id="004" 
+                            data-nombre="mollejas" 
+                            data-precio="2.00" 
+                            data-imagen="image/mollejas.jpg">
+                        <i class="bi bi-cart-plus me-2"></i>Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Producto 5 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card menu-item h-100">
+                <img src="image/morochos.jpg" class="card-img-top" alt="morochos">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="card-title">MARTES - Morocho Con Empanada</h5>
+                        <span class="badge bg-success">MARTES - $1.25</span>
+                    </div>
+                    <p class="card-text">Bebida caliente de morocho cremoso y dulce, acompañada de empanadas crujiente rellenas de queso.</p>
+                    <button class="btn btn-primary agregar-carrito" 
+                            data-id="005" 
+                            data-nombre="morochos" 
+                            data-precio="1.00" 
+                            data-imagen="image/morochos.jpg">
+                        <i class="bi bi-cart-plus me-2"></i>Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Producto 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/salchipapas.jpg" class="card-img-top" alt="Salchipapas">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Salchipapas</h5>
+                            <span class="badge bg-success">$1.25</span>                        </div>
+                        <p class="card-text">¡Un clásico irresistible a tu paladar! Crujientes papas fritas acompañadas de jugosas salchichas, sazonadas al gusto y servidas con tus salsas favoritas.</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="002" 
+                                data-nombre="Salchipapas" 
+                                data-precio="1.25" 
+                                data-imagen="image/salchipapas.jpg">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <!-- Producto 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/combos.png" class="card-img-top" alt="combos">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Re-Completas</h5>
+                            <span class="badge bg-success">3.00</span>
+                        </div>
+                        <p class="card-text">Las Buenisimas Re-Completas, Papas fritas, Huevo, Carne, Pollo y Salchicha disponible hasta agotar stock. 😉</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="006" 
+                                data-nombre="combos" 
+                                data-precio="3.00" 
+                                data-imagen="image/combos.png">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Producto 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/pescadoFrito.jpg" class="card-img-top" alt="Pescado Frito">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Pescado Frito</h5>
+                            <span class="badge bg-success">VIERNES DESDE $2.50</span>
+                        </div>
+                        <p class="card-text">Fresco y delicioso, nuestro pescado se prepara a la perfección: dorado por fuera, tierno por dentro. Acompañado de papitas fritas, yuca o patacones con su deliciosa ensalada.</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="001" 
+                                data-nombre="Pescado Frito" 
+                                data-precio="2.50" 
+                                data-imagen="image/pescadoFrito.jpg">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <!-- Producto 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/encebollado.webp" class="card-img-top" alt="Encebollado">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Encebollado</h5>
+                            <span class="badge bg-success">DOMINGOS - $3.00</span>
+                        </div>
+                        <p class="card-text">Reconfortante sopa de pescado con yuca, cebolla curtida, cilantro, canguil y limon Ideal para levantar el ánimo y el chuchaqui. 🥴</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="003" 
+                                data-nombre="Encebollado" 
+                                data-precio="3.00" 
+                                data-imagen="image/encebollado.webp">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Elementos flotantes -->
+    <div id="flotantes-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script src="js/scripts.js"></script>
+    <!-- Cargar componentes -->
+    <script>
+        // Cargar navbar
+        fetch('includes/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        // Cargar footer
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+
+        // Cargar elementos flotantes
+        fetch('includes/whatsapp-flotante.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('flotantes-container').innerHTML = data;
+            });
+    </script>
+    <!-- Carrito flotante para móviles -->
+    <button class="carrito-flotante" id="btn-carrito-flotante">
+        <i class="bi bi-cart3"></i>
+        <span class="badge">0</span>
+    </button>
+</body>
+</html>

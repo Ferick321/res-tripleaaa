@@ -11,6 +11,27 @@
     <!-- Estilos personalizados -->
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .product-category {
+            background: linear-gradient(135deg, rgba(0, 128, 0, 0.1) 0%, rgba(0, 100, 0, 0.2) 100%);
+            border-left: 4px solid #008000;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        .herbalife-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #008000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -18,137 +39,405 @@
 
     <div class="container mt-5 pt-4">
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold text-gradient">Ventas de productos Herbalife</h1>
-            <p class="lead">Herbalife es una marca global de nutrición reconocida por ofrecer productos que apoyan un estilo de vida saludable y equilibrado. Sus fórmulas están desarrolladas científicamente y diseñadas para complementar una alimentación balanceada, mejorar la digestión, apoyar el control de peso, y promover el bienestar general.
-
-A continuación, se describen las principales categorías y beneficios de los productos de Herbalife:</p>
+            <h1 class="display-4 fw-bold text-gradient">Nutrición Herbalife</h1>
+            <p class="lead">Productos científicos para una nutrición saludable, control de peso y bienestar general</p>
         </div>
 
-        <!-- Sección de Bebidas -->
+        <!-- Categoría: Batidos Nutricionales -->
+        <div class="product-category">
+            <h2 class="fw-bold"><i class="bi bi-cup-hot me-2"></i>Batidos Nutricionales</h2>
+            <p class="mb-0">Reemplazos de comidas con proteínas, vitaminas y minerales esenciales</p>
+        </div>
+
         <div class="row g-4">
-            <!-- Bebida 1 -->
+            <!-- Producto 1 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
-                    <img src="image/cocacola3l.png" class="card-img-top" alt="cola3l">
+                    <div class="herbalife-badge">Batido</div>
+                    <img src="image/herbalife/f1-vainilla.jpg" class="card-img-top" alt="Batido Vainilla">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Coca-Cola 3L</h5>
+                            <h5 class="card-title">Batido F1 Vainilla</h5>
+                            <span class="badge bg-success">$35.00</span>
+                        </div>
+                        <p class="card-text">Batido nutricional con sabor a vainilla, 550g. Rico en proteínas y fibra.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h101" 
+                                    data-nombre="Batido F1 Vainilla" 
+                                    data-precio="35.00" 
+                                    data-imagen="image/herbalife/f1-vainilla.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Batido</div>
+                    <img src="image/herbalife/f1-chocolate.jpg" class="card-img-top" alt="Batido Chocolate">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Batido F1 Chocolate</h5>
+                            <span class="badge bg-success">$35.00</span>
+                        </div>
+                        <p class="card-text">Batido nutricional con sabor a chocolate, 550g. Fuente de proteína vegetal.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h102" 
+                                    data-nombre="Batido F1 Chocolate" 
+                                    data-precio="35.00" 
+                                    data-imagen="image/herbalife/f1-chocolate.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Batido</div>
+                    <img src="image/herbalife/f1-cookies.jpg" class="card-img-top" alt="Batido Cookies">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Batido F1 Cookies & Cream</h5>
+                            <span class="badge bg-success">$36.00</span>
+                        </div>
+                        <p class="card-text">Delicioso sabor a galletas con crema. 550g. Bajo índice glucémico.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h103" 
+                                    data-nombre="Batido F1 Cookies & Cream" 
+                                    data-precio="36.00" 
+                                    data-imagen="image/herbalife/f1-cookies.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Té y Bebidas -->
+        <div class="product-category mt-5">
+            <h2 class="fw-bold"><i class="bi bi-cup-straw me-2"></i>Té y Bebidas</h2>
+            <p class="mb-0">Bebidas energizantes y antioxidantes para tu día</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Producto 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Té</div>
+                    <img src="image/herbalife/te-concentrado.jpg" class="card-img-top" alt="Té Concentrado">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Té Concentrado Herbalife</h5>
+                            <span class="badge bg-success">$30.00</span>
+                        </div>
+                        <p class="card-text">Mezcla de té negro y verde con hierbas. 50g. Antioxidante y energizante.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h201" 
+                                    data-nombre="Té Concentrado Herbalife" 
+                                    data-precio="30.00" 
+                                    data-imagen="image/herbalife/te-concentrado.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Bebida</div>
+                    <img src="image/herbalife/aloe-mango.jpg" class="card-img-top" alt="Aloe Mango">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Aloe Mango</h5>
+                            <span class="badge bg-success">$25.00</span>
+                        </div>
+                        <p class="card-text">Bebida con pulpa de aloe vera y mango. 1L. Favorece la digestión.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h202" 
+                                    data-nombre="Aloe Mango" 
+                                    data-precio="25.00" 
+                                    data-imagen="image/herbalife/aloe-mango.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Energía</div>
+                    <img src="image/herbalife/liftoff.jpg" class="card-img-top" alt="Liftoff">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Liftoff Energía</h5>
+                            <span class="badge bg-success">$28.00</span>
+                        </div>
+                        <p class="card-text">Tabletas efervescentes con cafeína y vitaminas B. Caja con 24 tabletas.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h203" 
+                                    data-nombre="Liftoff Energía" 
+                                    data-precio="28.00" 
+                                    data-imagen="image/herbalife/liftoff.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Proteínas y Snacks -->
+        <div class="product-category mt-5">
+            <h2 class="fw-bold"><i class="bi bi-egg-fried me-2"></i>Proteínas y Snacks</h2>
+            <p class="mb-0">Alternativas saludables para tus antojos</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Producto 7 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Proteína</div>
+                    <img src="image/herbalife/protein-bar.jpg" class="card-img-top" alt="Barra Proteica">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Barra Proteica</h5>
                             <span class="badge bg-success">$3.50</span>
                         </div>
-                        <p class="card-text">Cola Cola de 3 litros Original</p>
-                        <button class="btn btn-primary agregar-carrito" 
-                                data-id="201" 
-                                data-nombre="cola3l" 
-                                data-precio="3.50" 
-                                data-imagen="image/cocacola3l.png">
-                            <i class="bi bi-cart-plus me-2"></i>Agregar
-                        </button>
+                        <p class="card-text">Barra con 10g de proteína. Sabores: chocolate, limón y frutos rojos.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h301" 
+                                    data-nombre="Barra Proteica" 
+                                    data-precio="3.50" 
+                                    data-imagen="image/herbalife/protein-bar.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Bebida 2 -->
+            <!-- Producto 8 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
-                    <img src="image/retornoble125.jpg" class="card-img-top" alt="Retornable">
+                    <div class="herbalife-badge">Proteína</div>
+                    <img src="image/herbalife/protein-cookies.jpg" class="card-img-top" alt="Galletas Proteicas">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Retornable 1.25 litros</h5>
-                            <span class="badge bg-success">$1.00</span>
+                            <h5 class="card-title">Galletas Proteicas</h5>
+                            <span class="badge bg-success">$32.00</span>
                         </div>
-                        <p class="card-text">Coca Cola Retornable de 1.25 litros Original</p>
-                        <button class="btn btn-primary agregar-carrito" 
-                                data-id="202" 
-                                data-nombre="Retornable" 
-                                data-precio="1.00" 
-                                data-imagen="image/retornoble125.jpg">
-                            <i class="bi bi-cart-plus me-2"></i>Agregar
-                        </button>
+                        <p class="card-text">Paquete con 7 galletas sabor chocolate. 15g de proteína por porción.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h302" 
+                                    data-nombre="Galletas Proteicas" 
+                                    data-precio="32.00" 
+                                    data-imagen="image/herbalife/protein-cookies.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Bebida 3 -->
+            <!-- Producto 9 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
-                    <img src="image/colavidrio.webp" class="card-img-top" alt="colavidrio">
+                    <div class="herbalife-badge">Proteína</div>
+                    <img src="image/herbalife/protein-drink.jpg" class="card-img-top" alt="Bebida Proteica">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Coca Cola de Vidrio 1 Litro</h5>
-                            <span class="badge bg-success">$1.00</span>
+                            <h5 class="card-title">Bebida Proteica</h5>
+                            <span class="badge bg-success">$38.00</span>
                         </div>
-                        <p class="card-text">Coca Cola envase de vidrio de 1 litro</p>
-                        <button class="btn btn-primary agregar-carrito" 
-                                data-id="203" 
-                                data-nombre="colavidrio" 
-                                data-precio="1.00" 
-                                data-imagen="image/colavidrio.webp">
-                            <i class="bi bi-cart-plus me-2"></i>Agregar
-                        </button>
+                        <p class="card-text">Mezcla de proteína vegetal. 750g. Sabores: vainilla, chocolate y fresa.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h303" 
+                                    data-nombre="Bebida Proteica" 
+                                    data-precio="38.00" 
+                                    data-imagen="image/herbalife/protein-drink.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-             <!-- Bebida 4 -->
-             <div class="col-md-6 col-lg-4">
-                <div class="card menu-item h-100">
-                    <img src="image/colaspeques.jpg" class="card-img-top" alt="colaspeques">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Colas Personales</h5>
-                            <span class="badge bg-success">$0.30</span>
-                        </div>
-                        <p class="card-text">Ideales para todos los gustos.
-                            ¡Elige tu bebida y disfruta al máximo cada momento! Colas personas - Fanta, Sprite, Coca Cola.</p>
-                        <button class="btn btn-primary agregar-carrito" 
-                                data-id="201" 
-                                data-nombre="colaspeques"
-                                data-precio="0.30" 
-                                data-imagen="image/colaspeques.jpg">
-                            <i class="bi bi-cart-plus me-2"></i>Agregar
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bebida 5 -->
+        </div>
+
+        <!-- Categoría: Vitaminas y Suplementos -->
+        <div class="product-category mt-5">
+            <h2 class="fw-bold"><i class="bi bi-capsule me-2"></i>Vitaminas y Suplementos</h2>
+            <p class="mb-0">Complementos para tu bienestar general</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Producto 10 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
-                    <img src="image/pilsener.webp" class="card-img-top" alt="pilsener">
+                    <div class="herbalife-badge">Vitaminas</div>
+                    <img src="image/herbalife/multivitaminico.jpg" class="card-img-top" alt="Multivitamínico">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Cerveza Pilsener 1 litro.</h5>
-                            <span class="badge bg-success">$2.75</span>
+                            <h5 class="card-title">Multivitamínico</h5>
+                            <span class="badge bg-success">$40.00</span>
                         </div>
-                        <p class="card-text">¡Refresca tu momento!
-                            Acompaña tus comidas con una cerveza Pilsener bien fría, perfecta para relajarte y disfrutar.</p>
-                        <button class="btn btn-primary agregar-carrito" 
-                                data-id="202" 
-                                data-nombre="pilsener" 
-                                data-precio="2.75" 
-                                data-imagen="image/pilsener.webp">
-                            <i class="bi bi-cart-plus me-2"></i>Agregar
-                        </button>
+                        <p class="card-text">Complejo de vitaminas y minerales esenciales. 60 tabletas.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h401" 
+                                    data-nombre="Multivitamínico" 
+                                    data-precio="40.00" 
+                                    data-imagen="image/herbalife/multivitaminico.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Bebida 6 -->
+            <!-- Producto 11 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
-                    <img src="image/SWITCH.jpg" class="card-img-top" alt="SWITCH">
+                    <div class="herbalife-badge">Omega</div>
+                    <img src="image/herbalife/omega-3.jpg" class="card-img-top" alt="Omega 3">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Switch 1.4 litros</h5>
-                            <span class="badge bg-success">$2.50</span>
+                            <h5 class="card-title">Omega 3</h5>
+                            <span class="badge bg-success">$45.00</span>
                         </div>
-                        <p class="card-text">Variedad de sabores elije tus favoritas.</p>
-                        <button class="btn btn-primary agregar-carrito" 
-                                data-id="203" 
-                                data-nombre="SWITCH" 
-                                data-precio="2.50" 
-                                data-imagen="image/SWITCH.jpg">
-                            <i class="bi bi-cart-plus me-2"></i>Agregar
-                        </button>
+                        <p class="card-text">Ácidos grasos esenciales. 90 cápsulas. Apoya la salud cardiovascular.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h402" 
+                                    data-nombre="Omega 3" 
+                                    data-precio="45.00" 
+                                    data-imagen="image/herbalife/omega-3.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 12 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Fibra</div>
+                    <img src="image/herbalife/fiber.jpg" class="card-img-top" alt="Fibra Activa">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Fibra Activa</h5>
+                            <span class="badge bg-success">$28.00</span>
+                        </div>
+                        <p class="card-text">Mezcla de fibras solubles e insolubles. 210g. Favorece la digestión.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h403" 
+                                    data-nombre="Fibra Activa" 
+                                    data-precio="28.00" 
+                                    data-imagen="image/herbalife/fiber.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Cuidado Personal -->
+        <div class="product-category mt-5">
+            <h2 class="fw-bold"><i class="bi bi-basket me-2"></i>Cuidado Personal</h2>
+            <p class="mb-0">Productos para tu rutina de belleza y cuidado</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Producto 13 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Cuidado</div>
+                    <img src="image/herbalife/crema-facial.jpg" class="card-img-top" alt="Crema Facial">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Crema Facial Nourifusion</h5>
+                            <span class="badge bg-success">$50.00</span>
+                        </div>
+                        <p class="card-text">Hidratante facial con ácido hialurónico. 50ml. Para todo tipo de piel.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h501" 
+                                    data-nombre="Crema Facial Nourifusion" 
+                                    data-precio="50.00" 
+                                    data-imagen="image/herbalife/crema-facial.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 14 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Cuidado</div>
+                    <img src="image/herbalife/gel-bano.jpg" class="card-img-top" alt="Gel de Baño">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Gel de Baño Herbal Aloe</h5>
+                            <span class="badge bg-success">$22.00</span>
+                        </div>
+                        <p class="card-text">Gel limpiador con aloe vera. 250ml. Suave con la piel.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h502" 
+                                    data-nombre="Gel de Baño Herbal Aloe" 
+                                    data-precio="22.00" 
+                                    data-imagen="image/herbalife/gel-bano.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 15 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <div class="herbalife-badge">Cuidado</div>
+                    <img src="image/herbalife/protector-solar.jpg" class="card-img-top" alt="Protector Solar">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Protector Solar SPF 30</h5>
+                            <span class="badge bg-success">$35.00</span>
+                        </div>
+                        <p class="card-text">Protección UVA/UVB. 120ml. Resistente al agua.</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                    data-id="h503" 
+                                    data-nombre="Protector Solar SPF 30" 
+                                    data-precio="35.00" 
+                                    data-imagen="image/herbalife/protector-solar.jpg">
+                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -164,6 +453,7 @@ A continuación, se describen las principales categorías y beneficios de los pr
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Scripts personalizados -->
+    <script src="js/carrito.js"></script>
     <script src="js/scripts.js"></script>
     <!-- Cargar componentes -->
     <script>
@@ -187,11 +477,81 @@ A continuación, se describen las principales categorías y beneficios de los pr
             .then(data => {
                 document.getElementById('flotantes-container').innerHTML = data;
             });
+
+        // Event listeners para botones de agregar al carrito
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.agregar-carrito').forEach(button => {
+                button.addEventListener('click', function() {
+                    const producto = {
+                        id: this.dataset.id,
+                        nombre: this.dataset.nombre,
+                        precio: parseFloat(this.dataset.precio),
+                        imagen: this.dataset.imagen,
+                        cantidad: 1
+                    };
+                    
+                    agregarAlCarrito(producto);
+                });
+            });
+        });
+
+        // Función para agregar al carrito
+        function agregarAlCarrito(producto) {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            // Verificar si el producto ya está en el carrito
+            const productoExistente = carrito.find(item => item.id === producto.id);
+            
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                carrito.push(producto);
+            }
+            
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            
+            // Actualizar el botón flotante
+            const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+            const btnFlotante = document.getElementById('btn-carrito-flotante');
+            if (btnFlotante) {
+                const badge = btnFlotante.querySelector('.badge');
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'flex' : 'none';
+                btnFlotante.classList.toggle('has-items', totalItems > 0);
+            }
+            
+            // Mostrar notificación
+            mostrarNotificacion('Producto agregado al carrito');
+        }
+
+        // Función para mostrar notificación
+        function mostrarNotificacion(mensaje) {
+            const notificacion = document.createElement('div');
+            notificacion.className = 'position-fixed bottom-0 end-0 p-3';
+            notificacion.style.zIndex = '1100';
+            notificacion.innerHTML = `
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-success text-white">
+                        <strong class="me-auto">Éxito</strong>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${mensaje}
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notificacion);
+            
+            setTimeout(() => {
+                notificacion.remove();
+            }, 3000);
+        }
     </script>
     <!-- Carrito flotante para móviles -->
     <button class="carrito-flotante" id="btn-carrito-flotante">
         <i class="bi bi-cart3"></i>
-        <span class="badge">0</span>
+        <span class="badge" style="display: none;">0</span>
     </button>
 </body>
 </html>

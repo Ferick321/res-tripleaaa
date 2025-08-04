@@ -7,15 +7,25 @@ class Carrito {
     }
 
     agregarProducto(producto) {
-        const productoExistente = this.carrito.find(item => item.id === producto.id);
-        
-        if (productoExistente) {
-            productoExistente.cantidad += 1;
+        // Verificar si es un producto personalizado
+        if (producto.personalizado) {
+            // Los productos personalizados siempre se agregan como nuevos items
+            this.carrito.push(producto);
         } else {
-            this.carrito.push({
-                ...producto,
-                cantidad: 1
-            });
+            // Para productos normales, verificar si ya existe
+            const productoExistente = this.carrito.find(item => 
+                item.id === producto.id && 
+                (!item.personalizado || JSON.stringify(item.ingredientes) === JSON.stringify(producto.ingredientes)
+            ));
+            
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                this.carrito.push({
+                    ...producto,
+                    cantidad: 1
+                });
+            }
         }
         
         this.guardarCarrito();
@@ -66,27 +76,48 @@ class Carrito {
     }
 
     actualizarCarritoFlotante() {
-        const flotante = document.querySelector('.carrito-flotante');
+        const flotante = document.getElementById('btn-carrito-flotante');
         if (flotante) {
             const count = this.obtenerCantidadTotal();
             const badge = flotante.querySelector('.badge');
-            badge.textContent = count;
-            flotante.style.display = count > 0 ? 'flex' : 'none';
+            if (badge) {
+                badge.textContent = count;
+                if (count > 0) {
+                    flotante.classList.add('has-items');
+                    badge.style.display = 'flex';
+                } else {
+                    flotante.classList.remove('has-items');
+                    badge.style.display = 'none';
+                }
+            }
         }
     }
 
     mostrarNotificacion(nombreProducto) {
-        const toastEl = document.getElementById('added-to-cart-toast');
-        if (toastEl) {
-            const toastBody = toastEl.querySelector('.toast-body');
-            toastBody.textContent = `"${nombreProducto}" se ha añadido a tu carrito.`;
-            
-            const toast = new bootstrap.Toast(toastEl);
-            toast.show();
-        }
+        // Crear notificación dinámica si no existe el toast
+        const notificacion = document.createElement('div');
+        notificacion.className = 'position-fixed bottom-0 end-0 p-3';
+        notificacion.style.zIndex = '1100';
+        notificacion.innerHTML = `
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-success text-white">
+                    <strong class="me-auto">Éxito</strong>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    "${nombreProducto}" se ha añadido a tu carrito.
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(notificacion);
+        
+        setTimeout(() => {
+            notificacion.remove();
+        }, 3000);
     }
 
-    async enviarPedigo() {
+    async enviarPedido() {
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(true);
@@ -127,92 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 600);
             
             carrito.agregarProducto(producto);
-        });
-    });
-
-    // Efecto hover para dropdown
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('mouseenter', function() {
-            const dropdownMenu = this.querySelector('.dropdown-menu');
-            dropdownMenu.classList.add('show');
-        });
-        
-        dropdown.addEventListener('mouseleave', function() {
-            const dropdownMenu = this.querySelector('.dropdown-menu');
-            dropdownMenu.classList.remove('show');
-        });
-    });
-
-    // Efecto especial para botón de logout
-    const btnLogout = document.querySelector('.btn-logout');
-    if (btnLogout) {
-        btnLogout.addEventListener('mouseenter', function() {
-            this.classList.add('pulse');
-        });
-        
-        btnLogout.addEventListener('mouseleave', function() {
-            this.classList.remove('pulse');
-        });
-        
-        btnLogout.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Animación de salida
-            const originalHTML = this.innerHTML;
-            this.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span> Cerrando...';
-            this.classList.remove('pulse');
-            
-            // Simular acción de logout
-            setTimeout(() => {
-                window.location.href = this.getAttribute('href');
-            }, 1500);
-        });
-    }
-
-    // Filtro de búsqueda
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const menuItems = document.querySelectorAll('.menu-item');
-            
-            menuItems.forEach(item => {
-                const title = item.querySelector('.card-title').textContent.toLowerCase();
-                const description = item.querySelector('.card-text').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                    item.parentElement.style.display = 'block';
-                } else {
-                    item.parentElement.style.display = 'none';
-                }
-            });
-        });
-    }
-
-    // Efecto ripple para botones
-    document.querySelectorAll('.btn-primary, .btn-confirmar').forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Crear elemento para el efecto
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple-effect');
-            
-            // Posicionar el efecto
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size/2;
-            const y = e.clientY - rect.top - size/2;
-            
-            // Estilos del efecto
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${x}px`;
-            ripple.style.top = `${y}px`;
-            
-            // Agregar y luego remover el efecto
-            this.appendChild(ripple);
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
         });
     });
 

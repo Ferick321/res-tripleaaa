@@ -12,68 +12,35 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos personalizados para el carrusel */
-        .carousel-control-prev-icon, 
-        .carousel-control-next-icon {
-            background-color: rgba(13, 110, 253, 0.8);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            background-size: 1.5rem;
-        }
-        
-        .carousel-indicators [data-bs-target] {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin: 0 5px;
-            background-color: rgba(13, 110, 253, 0.5);
-            border: none;
-        }
-        
-        .carousel-indicators .active {
-            background-color: #0d6efd;
-        }
-        
-        /* Estilo para el carrito flotante */
-        .carrito-flotante {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .carrito-flotante:hover {
-            background-color: #0b5ed7;
-            transform: scale(1.1);
-        }
-        
-        .carrito-flotante .badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            font-size: 0.75rem;
-            background-color: #dc3545;
-        }
-        
-        /* Asegurar que las imágenes del carrusel tengan altura fija */
-        .carousel-item .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
+    /* Estilos personalizados para el carrusel */
+    .carousel-control-prev-icon, 
+    .carousel-control-next-icon {
+        background-color: rgba(13, 110, 253, 0.8);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-size: 1.5rem;
+    }
+    
+    .carousel-indicators [data-bs-target] {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 0 5px;
+        background-color: rgba(13, 110, 253, 0.5);
+        border: none;
+    }
+    
+    .carousel-indicators .active {
+        background-color: #0d6efd;
+    }
+    
+    /* Asegurar que las imágenes del carrusel tengan altura fija */
+    .carousel-item .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>
 </head>
 <body>
     <!-- Navbar -->
@@ -456,10 +423,9 @@
     <!-- Elementos flotantes -->
     <div id="flotantes-container"></div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Scripts personalizados -->
-    <script src="js/carrito.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="js/personalizacion.js"></script>
     <!-- Cargar componentes -->
     <script>
@@ -483,41 +449,12 @@
             .then(data => {
                 document.getElementById('flotantes-container').innerHTML = data;
             });
-
-        // Actualizar carrito flotante
-        function actualizarCarritoFlotante() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
-            document.querySelector('.carrito-flotante .badge').textContent = totalItems;
-            
-            // Mostrar/ocultar carrito flotante según contenido
-            const btnCarrito = document.getElementById('btn-carrito-flotante');
-            if (totalItems > 0) {
-                btnCarrito.style.display = 'flex';
-            } else {
-                btnCarrito.style.display = 'none';
-            }
-        }
-
-        // Evento para el botón del carrito flotante
-        document.getElementById('btn-carrito-flotante').addEventListener('click', function() {
-            // Aquí puedes agregar la lógica para mostrar el carrito
-            // Por ejemplo, abrir un modal con el resumen del carrito
-            alert('Mostrar carrito de compras');
-        });
-
-        // Actualizar carrito al cargar la página
-        document.addEventListener('DOMContentLoaded', actualizarCarritoFlotante);
-
-        // Escuchar eventos de actualización del carrito (deberías llamar a esta función cuando agregas/eliminas items)
-        // Por ejemplo, en tus funciones de agregar al carrito:
-        // function agregarAlCarrito() { ...; actualizarCarritoFlotante(); }
     </script>
-   <!-- Carrito flotante para móviles -->
-<button class="carrito-flotante" id="btn-carrito-flotante">
-    <i class="bi bi-cart3"></i>
-    <span class="badge" style="display: none;">0</span>
-</button>
+    
+    <!-- Carrito flotante para móviles -->
+    <button class="carrito-flotante" id="btn-carrito-flotante">
+        <i class="bi bi-cart3"></i>
+        <span class="badge">0</span>
     </button>
 </body>
 </html>

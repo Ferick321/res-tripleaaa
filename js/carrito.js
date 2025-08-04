@@ -21,6 +21,34 @@ document.addEventListener('DOMContentLoaded', function() {
     btnVaciar.addEventListener('click', vaciarCarrito);
     btnPagar.addEventListener('click', mostrarConfirmacion);
     metodoPago.addEventListener('change', actualizarMetodoPago);
+    // Función para actualizar el botón flotante del carrito
+
+    function actualizarBotonFlotante() {
+        const btnFlotante = document.getElementById('btn-carrito-flotante');
+        if (!btnFlotante) return;
+        
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+        
+        // Actualizar badge
+        const badge = btnFlotante.querySelector('.badge');
+        badge.textContent = totalItems;
+        
+        // Mostrar/ocultar badge
+        if (totalItems > 0) {
+            btnFlotante.classList.add('has-items');
+            badge.style.display = 'flex';
+        } else {
+            btnFlotante.classList.remove('has-items');
+            badge.style.display = 'none';
+        }
+        
+        // Evento click para ir al carrito
+        btnFlotante.addEventListener('click', function() {
+            window.location.href = 'carrito.html';
+        });
+    }
+
 
     function renderCarrito() {
         listaCarrito.innerHTML = '';
@@ -44,6 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const item = document.createElement('div');
             item.className = 'row align-items-center mb-3';
+            
+            // Mostrar detalles adicionales si es un producto personalizado
+            let detallesExtra = '';
+            if (producto.personalizado && producto.ingredientes && producto.ingredientes.length > 0) {
+                detallesExtra = `<div class="mt-2"><small class="text-muted">Personalizado con: ${producto.ingredientes.map(i => `${i.cantidad}x ${i.nombre}`).join(', ')}</small></div>`;
+            }
+            
             item.innerHTML = `
                 <div class="col-3">
                     <img src="${producto.imagen}" alt="${producto.nombre}" class="img-fluid rounded">
@@ -51,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="col-5">
                     <h6 class="mb-1">${producto.nombre}</h6>
                     <small class="text-muted">$${producto.precio.toFixed(2)} c/u</small>
+                    ${detallesExtra}
                 </div>
                 <div class="col-2">
                     <input type="number" min="1" value="${producto.cantidad}" 
@@ -157,9 +193,17 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         carrito.forEach(item => {
+            let detalles = '';
+            if (item.personalizado && item.ingredientes && item.ingredientes.length > 0) {
+                detalles = `<small class="text-muted d-block">(${item.ingredientes.map(i => `${i.cantidad}x ${i.nombre}`).join(', ')})</small>`;
+            }
+            
             html += `
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>${item.nombre} x${item.cantidad}</span>
+                    <div>
+                        <span>${item.nombre} x${item.cantidad}</span>
+                        ${detalles}
+                    </div>
                     <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
                 </li>
             `;
@@ -208,7 +252,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let mensaje = `¡Hola! Quiero hacer un pedido:%0A%0A`;
         
         carrito.forEach(item => {
-            mensaje += `- ${item.nombre} x${item.cantidad}: $${(item.precio * item.cantidad).toFixed(2)}%0A`;
+            let detalles = '';
+            if (item.personalizado && item.ingredientes && item.ingredientes.length > 0) {
+                detalles = `%0A  - Personalizado con: ${item.ingredientes.map(i => `${i.cantidad}x ${i.nombre}`).join(', ')}`;
+            }
+            
+            mensaje += `- ${item.nombre} x${item.cantidad}: $${(item.precio * item.cantidad).toFixed(2)}${detalles}%0A`;
         });
         
         mensaje += `%0ASubtotal: $${subtotal.toFixed(2)}%0A`;

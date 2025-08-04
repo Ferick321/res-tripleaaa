@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrición - Triple AAA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container mt-5 pt-4">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-gradient">Ventas de productos Herbalife</h1>
+            <p class="lead">Herbalife es una marca global de nutrición reconocida por ofrecer productos que apoyan un estilo de vida saludable y equilibrado. Sus fórmulas están desarrolladas científicamente y diseñadas para complementar una alimentación balanceada, mejorar la digestión, apoyar el control de peso, y promover el bienestar general.
+
+A continuación, se describen las principales categorías y beneficios de los productos de Herbalife:</p>
+        </div>
+
+        <!-- Sección de Bebidas -->
+        <div class="row g-4">
+            <!-- Bebida 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/cocacola3l.png" class="card-img-top" alt="cola3l">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Coca-Cola 3L</h5>
+                            <span class="badge bg-success">$3.50</span>
+                        </div>
+                        <p class="card-text">Cola Cola de 3 litros Original</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="201" 
+                                data-nombre="cola3l" 
+                                data-precio="3.50" 
+                                data-imagen="image/cocacola3l.png">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bebida 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/retornoble125.jpg" class="card-img-top" alt="Retornable">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Retornable 1.25 litros</h5>
+                            <span class="badge bg-success">$1.00</span>
+                        </div>
+                        <p class="card-text">Coca Cola Retornable de 1.25 litros Original</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="202" 
+                                data-nombre="Retornable" 
+                                data-precio="1.00" 
+                                data-imagen="image/retornoble125.jpg">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bebida 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/colavidrio.webp" class="card-img-top" alt="colavidrio">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Coca Cola de Vidrio 1 Litro</h5>
+                            <span class="badge bg-success">$1.00</span>
+                        </div>
+                        <p class="card-text">Coca Cola envase de vidrio de 1 litro</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="203" 
+                                data-nombre="colavidrio" 
+                                data-precio="1.00" 
+                                data-imagen="image/colavidrio.webp">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+             <!-- Bebida 4 -->
+             <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/colaspeques.jpg" class="card-img-top" alt="colaspeques">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Colas Personales</h5>
+                            <span class="badge bg-success">$0.30</span>
+                        </div>
+                        <p class="card-text">Ideales para todos los gustos.
+                            ¡Elige tu bebida y disfruta al máximo cada momento! Colas personas - Fanta, Sprite, Coca Cola.</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="201" 
+                                data-nombre="colaspeques"
+                                data-precio="0.30" 
+                                data-imagen="image/colaspeques.jpg">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bebida 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/pilsener.webp" class="card-img-top" alt="pilsener">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Cerveza Pilsener 1 litro.</h5>
+                            <span class="badge bg-success">$2.75</span>
+                        </div>
+                        <p class="card-text">¡Refresca tu momento!
+                            Acompaña tus comidas con una cerveza Pilsener bien fría, perfecta para relajarte y disfrutar.</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="202" 
+                                data-nombre="pilsener" 
+                                data-precio="2.75" 
+                                data-imagen="image/pilsener.webp">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bebida 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card menu-item h-100">
+                    <img src="image/SWITCH.jpg" class="card-img-top" alt="SWITCH">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">Switch 1.4 litros</h5>
+                            <span class="badge bg-success">$2.50</span>
+                        </div>
+                        <p class="card-text">Variedad de sabores elije tus favoritas.</p>
+                        <button class="btn btn-primary agregar-carrito" 
+                                data-id="203" 
+                                data-nombre="SWITCH" 
+                                data-precio="2.50" 
+                                data-imagen="image/SWITCH.jpg">
+                            <i class="bi bi-cart-plus me-2"></i>Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Elementos flotantes -->
+    <div id="flotantes-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script src="js/scripts.js"></script>
+    <!-- Cargar componentes -->
+    <script>
+        // Cargar navbar
+        fetch('includes/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+
+        // Cargar footer
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+
+        // Cargar elementos flotantes
+        fetch('includes/whatsapp-flotante.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('flotantes-container').innerHTML = data;
+            });
+    </script>
+    <!-- Carrito flotante para móviles -->
+    <button class="carrito-flotante" id="btn-carrito-flotante">
+        <i class="bi bi-cart3"></i>
+        <span class="badge">0</span>
+    </button>
+</body>
+</html>

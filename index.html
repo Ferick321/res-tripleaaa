@@ -11,6 +11,69 @@
     <!-- Estilos personalizados -->
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados para el carrusel */
+        .carousel-control-prev-icon, 
+        .carousel-control-next-icon {
+            background-color: rgba(13, 110, 253, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-size: 1.5rem;
+        }
+        
+        .carousel-indicators [data-bs-target] {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: rgba(13, 110, 253, 0.5);
+            border: none;
+        }
+        
+        .carousel-indicators .active {
+            background-color: #0d6efd;
+        }
+        
+        /* Estilo para el carrito flotante */
+        .carrito-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .carrito-flotante:hover {
+            background-color: #0b5ed7;
+            transform: scale(1.1);
+        }
+        
+        .carrito-flotante .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 0.75rem;
+            background-color: #dc3545;
+        }
+        
+        /* Asegurar que las imágenes del carrusel tengan altura fija */
+        .carousel-item .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -21,10 +84,200 @@
             <h1 class="display-4 fw-bold text-gradient">Bienvenidos a Triple AAA</h1>
             <p class="lead">La mejor comida rápida con ingredientes frescos y sabores auténticos</p>
         </div>
+        
+        <!-- Carrusel de Productos Destacados -->
+        <div class="mb-5">
+            <h2 class="text-center mb-4">Nuestros Productos Destacados</h2>
+            <div id="productosCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Grupo 1 -->
+                    <div class="carousel-item active">
+                        <div class="row g-4 justify-content-center">
+                            <!-- Producto 1 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card menu-item h-100">
+                                    <img src="image/papihuevo.png" class="card-img-top" alt="Papi-Huevo">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="card-title">Papi-Huevo</h5>
+                                            <span class="badge bg-success">$1.25</span>
+                                        </div>
+                                        <p class="card-text"></p>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                                    data-id="001" 
+                                                    data-nombre="Papi-Huevo" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/papihuevo.png">
+                                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                                            </button>
+                                            <button class="btn btn-outline-primary personalizar-item"
+                                                    data-id="001" 
+                                                    data-nombre="Papi-Huevo" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/papihuevo.png">
+                                                <i class="bi bi-gear me-2"></i>Personalizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Producto 2 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card menu-item h-100">
+                                    <img src="image/papipollo.jpg" class="card-img-top" alt="Papi-Pollo">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="card-title">Papi-Pollo</h5>
+                                            <span class="badge bg-success">$1.25</span>
+                                        </div>
+                                        <p class="card-text"></p>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                                    data-id="002" 
+                                                    data-nombre="Papi-Pollo" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/papipollo.jpg">
+                                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                                            </button>
+                                            <button class="btn btn-outline-primary personalizar-item"
+                                                    data-id="002" 
+                                                    data-nombre="Papi-Pollo" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/papipollo.jpg">
+                                                <i class="bi bi-gear me-2"></i>Personalizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Grupo 2 -->
+                    <div class="carousel-item">
+                        <div class="row g-4 justify-content-center">
+                            <!-- Producto 3 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card menu-item h-100">
+                                    <img src="image/salchipapas.jpg" class="card-img-top" alt="Salchipapas">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="card-title">Salchipapas</h5>
+                                            <span class="badge bg-success">$1.25</span>
+                                        </div>
+                                        <p class="card-text"></p>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                                    data-id="003" 
+                                                    data-nombre="Salchipapas" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/salchipapas.jpg">
+                                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                                            </button>
+                                            <button class="btn btn-outline-primary personalizar-item"
+                                                    data-id="003" 
+                                                    data-nombre="Salchipapas" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/salchipapas.jpg">
+                                                <i class="bi bi-gear me-2"></i>Personalizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Producto 4 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card menu-item h-100">
+                                    <img src="image/papicarne.jpg" class="card-img-top" alt="Papi-Carne">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="card-title">Papi-Carne</h5>
+                                            <span class="badge bg-success">$1.25</span>
+                                        </div>
+                                        <p class="card-text"></p>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                                    data-id="004" 
+                                                    data-nombre="Papi-Carne" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/papicarne.jpg">
+                                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                                            </button>
+                                            <button class="btn btn-outline-primary personalizar-item"
+                                                    data-id="004" 
+                                                    data-nombre="Papi-Carne" 
+                                                    data-precio="1.25" 
+                                                    data-imagen="image/papicarne.jpg">
+                                                <i class="bi bi-gear me-2"></i>Personalizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Grupo 3 -->
+                    <div class="carousel-item">
+                        <div class="row g-4 justify-content-center">
+                            <!-- Producto 5 -->
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card menu-item h-100">
+                                    <img src="image/recompleta.jpg" class="card-img-top" alt="Re-Completas">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="card-title">Re-Completas</h5>
+                                            <span class="badge bg-success">3.00</span>
+                                        </div>
+                                        <p class="card-text">Las Buenisimas Re-Completas, Papas fritas, Huevo, Carne, Pollo y Salchicha disponible hasta agotar stock. 😉</p>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
+                                                    data-id="005" 
+                                                    data-nombre="Re-Completas" 
+                                                    data-precio="3.00" 
+                                                    data-imagen="image/combos.png">
+                                                <i class="bi bi-cart-plus me-2"></i>Agregar
+                                            </button>
+                                            <button class="btn btn-outline-primary personalizar-item"
+                                                    data-id="005" 
+                                                    data-nombre="Re-Completas" 
+                                                    data-precio="3.00" 
+                                                    data-imagen="image/combos.png">
+                                                <i class="bi bi-gear me-2"></i>Personalizar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controles del carrusel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#productosCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productosCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                
+                <!-- Indicadores -->
+                <div class="carousel-indicators mt-3">
+                    <button type="button" data-bs-target="#productosCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#productosCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#productosCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
 
-        <!-- Sección de Productos -->
+        <!-- Sección de Otros Productos -->
         <div class="row g-4">
-            <!-- Producto 1 -->
+            <!-- Producto 6 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
                     <img src="image/mollejas.jpg" class="card-img-top" alt="mollejas">
@@ -36,14 +289,14 @@
                         <p class="card-text">Deliciosas mollejas bien sazonadas, asadas 😋 para los amantes de los sabores intensos.</p>
                         <div class="d-flex gap-2">
                             <button class="btn btn-primary agregar-carrito flex-grow-1" 
-                                    data-id="004" 
+                                    data-id="006" 
                                     data-nombre="Mollejas Asadas" 
                                     data-precio="2.00" 
                                     data-imagen="image/mollejas.jpg">
                                 <i class="bi bi-cart-plus me-2"></i>Agregar
                             </button>
                             <button class="btn btn-outline-primary personalizar-item"
-                                    data-id="004" 
+                                    data-id="006" 
                                     data-nombre="Mollejas Asadas" 
                                     data-precio="2.00" 
                                     data-imagen="image/mollejas.jpg">
@@ -54,7 +307,7 @@
                 </div>
             </div>
             
-            <!-- Producto 2 -->
+            <!-- Producto 7 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
                     <img src="image/morochos.jpg" class="card-img-top" alt="morochos">
@@ -66,77 +319,17 @@
                         <p class="card-text">Bebida caliente de morocho cremoso y dulce, acompañada de empanadas crujiente rellenas de queso.</p>
                         <div class="d-flex gap-2">
                             <button class="btn btn-primary agregar-carrito flex-grow-1" 
-                                    data-id="005" 
+                                    data-id="007" 
                                     data-nombre="Morocho con empanada" 
                                     data-precio="1.25" 
                                     data-imagen="image/morochos.jpg">
                                 <i class="bi bi-cart-plus me-2"></i>Agregar
                             </button>
                             <button class="btn btn-outline-primary personalizar-item"
-                                    data-id="005" 
+                                    data-id="007" 
                                     data-nombre="Morocho con empanada" 
                                     data-precio="1.25" 
                                     data-imagen="image/morochos.jpg">
-                                <i class="bi bi-gear me-2"></i>Personalizar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card menu-item h-100">
-                    <img src="image/salchipapas.jpg" class="card-img-top" alt="Salchipapas">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Salchipapas</h5>
-                            <span class="badge bg-success">$1.25</span>
-                        </div>
-                        <p class="card-text">¡Un clásico irresistible a tu paladar! Crujientes papas fritas acompañadas de jugosas salchichas, sazonadas al gusto y servidas con tus salsas favoritas.</p>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
-                                    data-id="002" 
-                                    data-nombre="Salchipapas" 
-                                    data-precio="1.25" 
-                                    data-imagen="image/salchipapas.jpg">
-                                <i class="bi bi-cart-plus me-2"></i>Agregar
-                            </button>
-                            <button class="btn btn-outline-primary personalizar-item"
-                                    data-id="002" 
-                                    data-nombre="Salchipapas" 
-                                    data-precio="1.25" 
-                                    data-imagen="image/salchipapas.jpg">
-                                <i class="bi bi-gear me-2"></i>Personalizar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card menu-item h-100">
-                    <img src="image/combos.png" class="card-img-top" alt="combos">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title">Re-Completas</h5>
-                            <span class="badge bg-success">3.00</span>
-                        </div>
-                        <p class="card-text">Las Buenisimas Re-Completas, Papas fritas, Huevo, Carne, Pollo y Salchicha disponible hasta agotar stock. 😉</p>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary agregar-carrito flex-grow-1" 
-                                    data-id="006" 
-                                    data-nombre="Re-Completas" 
-                                    data-precio="3.00" 
-                                    data-imagen="image/combos.png">
-                                <i class="bi bi-cart-plus me-2"></i>Agregar
-                            </button>
-                            <button class="btn btn-outline-primary personalizar-item"
-                                    data-id="006" 
-                                    data-nombre="Re-Completas" 
-                                    data-precio="3.00" 
-                                    data-imagen="image/combos.png">
                                 <i class="bi bi-gear me-2"></i>Personalizar
                             </button>
                         </div>
@@ -144,7 +337,7 @@
                 </div>
             </div>
 
-            <!-- Producto 5 -->
+            <!-- Producto 8 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
                     <img src="image/pescadoFrito.jpg" class="card-img-top" alt="Pescado Frito">
@@ -156,14 +349,14 @@
                         <p class="card-text">Fresco y delicioso, nuestro pescado se prepara a la perfección: dorado por fuera, tierno por dentro. Acompañado de papitas fritas, yuca o patacones con su deliciosa ensalada.</p>
                         <div class="d-flex gap-2">
                             <button class="btn btn-primary agregar-carrito flex-grow-1" 
-                                    data-id="001" 
+                                    data-id="008" 
                                     data-nombre="Pescado Frito" 
                                     data-precio="2.50" 
                                     data-imagen="image/pescadoFrito.jpg">
                                 <i class="bi bi-cart-plus me-2"></i>Agregar
                             </button>
                             <button class="btn btn-outline-primary personalizar-item"
-                                    data-id="001" 
+                                    data-id="008" 
                                     data-nombre="Pescado Frito" 
                                     data-precio="2.50" 
                                     data-imagen="image/pescadoFrito.jpg">
@@ -174,7 +367,7 @@
                 </div>
             </div>
             
-            <!-- Producto 6 -->
+            <!-- Producto 9 -->
             <div class="col-md-6 col-lg-4">
                 <div class="card menu-item h-100">
                     <img src="image/encebollado.webp" class="card-img-top" alt="Encebollado">
@@ -186,14 +379,14 @@
                         <p class="card-text">Reconfortante sopa de pescado con yuca, cebolla curtida, cilantro, canguil y limon Ideal para levantar el ánimo y el chuchaqui. 🥴</p>
                         <div class="d-flex gap-2">
                             <button class="btn btn-primary agregar-carrito flex-grow-1" 
-                                    data-id="003" 
+                                    data-id="009" 
                                     data-nombre="Encebollado" 
                                     data-precio="3.00" 
                                     data-imagen="image/encebollado.webp">
                                 <i class="bi bi-cart-plus me-2"></i>Agregar
                             </button>
                             <button class="btn btn-outline-primary personalizar-item"
-                                    data-id="003" 
+                                    data-id="009" 
                                     data-nombre="Encebollado" 
                                     data-precio="3.00" 
                                     data-imagen="image/encebollado.webp">
@@ -290,11 +483,41 @@
             .then(data => {
                 document.getElementById('flotantes-container').innerHTML = data;
             });
+
+        // Actualizar carrito flotante
+        function actualizarCarritoFlotante() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+            document.querySelector('.carrito-flotante .badge').textContent = totalItems;
+            
+            // Mostrar/ocultar carrito flotante según contenido
+            const btnCarrito = document.getElementById('btn-carrito-flotante');
+            if (totalItems > 0) {
+                btnCarrito.style.display = 'flex';
+            } else {
+                btnCarrito.style.display = 'none';
+            }
+        }
+
+        // Evento para el botón del carrito flotante
+        document.getElementById('btn-carrito-flotante').addEventListener('click', function() {
+            // Aquí puedes agregar la lógica para mostrar el carrito
+            // Por ejemplo, abrir un modal con el resumen del carrito
+            alert('Mostrar carrito de compras');
+        });
+
+        // Actualizar carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', actualizarCarritoFlotante);
+
+        // Escuchar eventos de actualización del carrito (deberías llamar a esta función cuando agregas/eliminas items)
+        // Por ejemplo, en tus funciones de agregar al carrito:
+        // function agregarAlCarrito() { ...; actualizarCarritoFlotante(); }
     </script>
-    <!-- Carrito flotante para móviles -->
-    <button class="carrito-flotante" id="btn-carrito-flotante">
-        <i class="bi bi-cart3"></i>
-        <span class="badge">0</span>
+   <!-- Carrito flotante para móviles -->
+<button class="carrito-flotante" id="btn-carrito-flotante">
+    <i class="bi bi-cart3"></i>
+    <span class="badge" style="display: none;">0</span>
+</button>
     </button>
 </body>
 </html>

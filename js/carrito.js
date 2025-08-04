@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     btnVaciar.addEventListener('click', vaciarCarrito);
     btnPagar.addEventListener('click', mostrarConfirmacion);
     metodoPago.addEventListener('change', actualizarMetodoPago);
+  
     // Función para actualizar el botón flotante del carrito
-
     function actualizarBotonFlotante() {
         const btnFlotante = document.getElementById('btn-carrito-flotante');
         if (!btnFlotante) return;

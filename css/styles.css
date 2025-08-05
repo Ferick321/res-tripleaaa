@@ -979,6 +979,24 @@ h1::after, h2::after {
 }
 
 /* Estilos para el botón de personalizar */
+/* Nuevos estilos para los botones */
+.card-body .d-grid {
+    margin-top: 1rem;
+}
+
+.card-body .btn {
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.card-body .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Elimina o comenta estos estilos antiguos si existen:
 .personalizar-item {
     border-radius: 50px;
     padding: 0.5rem 1rem;
@@ -999,31 +1017,4 @@ h1::after, h2::after {
 
 .personalizar-item:hover i {
     transform: rotate(30deg);
-}
-
-/* Responsive para el modal */
-@media (max-width: 768px) {
-    #personalizarModal .modal-dialog {
-        margin: 0.5rem;
-    }
-    
-    #personalizarModal .modal-content {
-        border-radius: 10px;
-    }
-    
-    .personalizar-item {
-        width: 45px;
-    }
-    
-    .personalizar-item:hover {
-        width: 45px;
-    }
-}
-
-/* Estilos para la notificación */
-.toast {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
 }

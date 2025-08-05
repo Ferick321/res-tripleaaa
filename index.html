@@ -369,57 +369,53 @@
         </div>
     </div>
 
-    <!-- Modal de personalización -->
-    <div class="modal fade" id="personalizarModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Personalizar Producto</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row mb-4">
-                        <div class="col-md-4">
-                            <img id="modal-product-image" src="" class="img-fluid rounded" alt="Producto">
+    <!-- Modal de Personalización -->
+<div class="modal fade" id="personalizarModal" tabindex="-1" aria-labelledby="personalizarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="personalizarModalLabel">Personalizar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img id="modal-product-image" src="" class="img-fluid rounded mb-3" alt="Producto">
+                        <h5 id="modal-product-name" class="mb-2"></h5>
+                        <p class="text-muted">Precio base: <span id="modal-product-price"></span></p>
+                    </div>
+                    <div class="col-md-8">
+                        <h6>Agregar ingredientes:</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="15%">Cantidad</th>
+                                        <th width="35%">Ingrediente</th>
+                                        <th width="25%">Precio unitario</th>
+                                        <th width="25%">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ingredientes-table">
+                                    <!-- Aquí se generan dinámicamente los ingredientes -->
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="col-md-8">
-                            <h4 id="modal-product-name"></h4>
-                            <p id="modal-product-price" class="text-success fw-bold"></p>
+                        <div class="d-flex justify-content-end mt-3">
+                            <h5>Total: <span id="total-personalizado" class="text-primary">$0.00</span></h5>
                         </div>
                     </div>
-                    
-                    <h5 class="mb-3">Personaliza los ingredientes:</h5>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class="table-light">
-                                <tr>
-                                    <th width="20%">Cantidad</th>
-                                    <th width="40%">Descripción</th>
-                                    <th width="20%">P. Uni</th>
-                                    <th width="20%">P. Total</th>
-                                </tr>
-                            </thead>
-                            <tbody id="ingredientes-table">
-                                <!-- Aquí se generarán las filas de ingredientes -->
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <h5 class="mb-0">Total Personalizado:</h5>
-                        <h5 class="mb-0 text-success" id="total-personalizado">$0.00</h5>
-                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btn-agregar-personalizado">
-                        <i class="bi bi-cart-plus me-2"></i>Agregar al Carrito
-                    </button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btn-agregar-personalizado">
+                    <i class="bi bi-cart-plus me-1"></i> Agregar al carrito
+                </button>
             </div>
         </div>
     </div>
-
+</div>
     <!-- Footer -->
     <div id="footer-container"></div>
 

@@ -456,44 +456,30 @@
     <script src="js/carrito.js"></script>
     <script src="js/scripts.js"></script>
     <!-- Cargar componentes -->
-    <script>
-        // Cargar navbar
-        fetch('includes/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-container').innerHTML = data;
-            });
-
-        // Cargar footer
-        fetch('includes/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
-            });
-
-        // Cargar elementos flotantes
-        fetch('includes/whatsapp-flotante.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('flotantes-container').innerHTML = data;
-            });
-
-        // Event listeners para botones de agregar al carrito
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.agregar-carrito').forEach(button => {
-                button.addEventListener('click', function() {
-                    const producto = {
-                        id: this.dataset.id,
-                        nombre: this.dataset.nombre,
-                        precio: parseFloat(this.dataset.precio),
-                        imagen: this.dataset.imagen,
-                        cantidad: 1
-                    };
-                    
-                    agregarAlCarrito(producto);
-                });
-            });
-        });
+   <script>
+        // Función para actualizar todos los contadores del carrito
+        function actualizarContadoresCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+            
+            // Actualizar el botón flotante (móviles)
+            const btnFlotante = document.getElementById('btn-carrito-flotante');
+            if (btnFlotante) {
+                const badgeFlotante = btnFlotante.querySelector('.badge');
+                if (badgeFlotante) {
+                    badgeFlotante.textContent = totalItems;
+                    badgeFlotante.style.display = totalItems > 0 ? 'flex' : 'none';
+                }
+                btnFlotante.classList.toggle('has-items', totalItems > 0);
+            }
+            
+            // Actualizar el contador del navbar (escritorio)
+            const badgeNavbar = document.querySelector('.navbar .cart-badge');
+            if (badgeNavbar) {
+                badgeNavbar.textContent = totalItems;
+                badgeNavbar.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
 
         // Función para agregar al carrito
         function agregarAlCarrito(producto) {
@@ -510,15 +496,8 @@
             
             localStorage.setItem('carrito', JSON.stringify(carrito));
             
-            // Actualizar el botón flotante
-            const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
-            const btnFlotante = document.getElementById('btn-carrito-flotante');
-            if (btnFlotante) {
-                const badge = btnFlotante.querySelector('.badge');
-                badge.textContent = totalItems;
-                badge.style.display = totalItems > 0 ? 'flex' : 'none';
-                btnFlotante.classList.toggle('has-items', totalItems > 0);
-            }
+            // Actualizar todos los contadores
+            actualizarContadoresCarrito();
             
             // Mostrar notificación
             mostrarNotificacion('Producto agregado al carrito');
@@ -547,7 +526,58 @@
                 notificacion.remove();
             }, 3000);
         }
+
+        // Cargar componentes y configurar eventos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar navbar
+            fetch('includes/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                    // Después de cargar el navbar, actualizar contadores
+                    actualizarContadoresCarrito();
+                });
+
+            // Cargar footer
+            fetch('includes/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+
+            // Cargar elementos flotantes
+            fetch('includes/whatsapp-flotante.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('flotantes-container').innerHTML = data;
+                });
+
+            // Configurar event listeners para los botones de agregar al carrito
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('agregar-carrito') || e.target.closest('.agregar-carrito')) {
+                    const button = e.target.classList.contains('agregar-carrito') ? 
+                        e.target : e.target.closest('.agregar-carrito');
+                    
+                    const producto = {
+                        id: button.dataset.id,
+                        nombre: button.dataset.nombre,
+                        precio: parseFloat(button.dataset.precio),
+                        imagen: button.dataset.imagen,
+                        cantidad: 1
+                    };
+                    agregarAlCarrito(producto);
+                }
+            });
+
+            // Evento para el botón flotante del carrito
+            document.addEventListener('click', function(e) {
+                if (e.target.id === 'btn-carrito-flotante' || e.target.closest('#btn-carrito-flotante')) {
+                    window.location.href = 'carrito.html';
+                }
+            });
+        });
     </script>
+    
     <!-- Carrito flotante para móviles -->
     <button class="carrito-flotante" id="btn-carrito-flotante">
         <i class="bi bi-cart3"></i>

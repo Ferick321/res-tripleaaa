@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const costoEnvio = 1.50;
     let envio = 0;
-
     // Event listeners
     tipoEntrega.addEventListener('change', actualizarEnvio);
     btnVaciar.addEventListener('click', vaciarCarrito);
@@ -44,13 +43,27 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const item = document.createElement('div');
             item.className = 'row align-items-center mb-3';
+            
+            // Mostrar ingredientes si el producto es personalizado
+            let ingredientesHTML = '';
+            if (producto.personalizado && producto.ingredientes && producto.ingredientes.length > 0) {
+                ingredientesHTML = `<div class="ingredientes-extra">Extras: `;
+                producto.ingredientes.forEach(ing => {
+                    if (ing.cantidad > 0) {
+                        ingredientesHTML += `${ing.nombre} (${ing.cantidad}), `;
+                    }
+                });
+                ingredientesHTML = ingredientesHTML.replace(/, $/, '') + '</div>';
+            }
+            
             item.innerHTML = `
                 <div class="col-3">
-                    <img src="${producto.imagen}" alt="${producto.nombre}" class="img-fluid rounded">
+                    <img src="${producto.imagen}" alt="${producto.nombre}" class="img-fluid rounded img-carrito">
                 </div>
                 <div class="col-5">
                     <h6 class="mb-1">${producto.nombre}</h6>
                     <small class="text-muted">$${producto.precio.toFixed(2)} c/u</small>
+                    ${ingredientesHTML}
                 </div>
                 <div class="col-2">
                     <input type="number" min="1" value="${producto.cantidad}" 
@@ -67,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             listaCarrito.appendChild(item);
         });
-        
-        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+
+          subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
         actualizarEnvio();
         
         // Event listeners para los nuevos elementos
@@ -96,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
     function actualizarEnvio() {
         if (tipoEntrega.value === 'domicilio') {
             envio = costoEnvio;
@@ -142,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const contenedor = document.querySelector('.card-body');
         contenedor.prepend(alerta);
     }
-    
     function mostrarConfirmacion() {
         if (tipoEntrega.value === 'domicilio' && !direccionInput.value.trim()) {
             mostrarAlerta('Por favor ingrese una dirección para la entrega.');
@@ -159,7 +170,11 @@ document.addEventListener('DOMContentLoaded', function() {
         carrito.forEach(item => {
             html += `
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>${item.nombre} x${item.cantidad}</span>
+                    <div>
+                        <span>${item.nombre} x${item.cantidad}</span>
+                        ${item.personalizado && item.ingredientes && item.ingredientes.length > 0 ? 
+                          `<div class="ingredientes-extra">Extras: ${item.ingredientes.map(ing => ing.cantidad > 0 ? `${ing.nombre} (${ing.cantidad})` : '').filter(Boolean).join(', ')}</div>` : ''}
+                    </div>
                     <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
                 </li>
             `;

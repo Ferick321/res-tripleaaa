@@ -216,44 +216,59 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('btn-confirmar').addEventListener('click', confirmarPedido);
     }
     
-    function confirmarPedido() {
-        const subtotal = parseFloat(subtotalElement.textContent.replace('$', ''));
-        const total = subtotal + envio;
+function confirmarPedido() {
+    const subtotal = parseFloat(subtotalElement.textContent.replace('$', ''));
+    const total = subtotal + envio;
+    
+    let mensaje = `¡Hola! Quiero hacer un pedido:%0A%0A`;
+    
+    carrito.forEach(item => {
+        mensaje += `- ${item.nombre} x${item.cantidad}: $${(item.precio * item.cantidad).toFixed(2)}`;
         
-        let mensaje = `¡Hola! Quiero hacer un pedido:%0A%0A`;
-        
-        carrito.forEach(item => {
-            mensaje += `- ${item.nombre} x${item.cantidad}: $${(item.precio * item.cantidad).toFixed(2)}%0A`;
-        });
-        
-        mensaje += `%0ASubtotal: $${subtotal.toFixed(2)}%0A`;
-        mensaje += `Envío: $${envio.toFixed(2)}%0A`;
-        mensaje += `Total: $${total.toFixed(2)}%0A%0A`;
-        mensaje += `Tipo de entrega: ${tipoEntrega.options[tipoEntrega.selectedIndex].text}%0A`;
-        mensaje += `Método de pago: ${metodoPago.options[metodoPago.selectedIndex].text}%0A`;
-        
-        if (tipoEntrega.value === 'domicilio' && direccionInput.value) {
-            mensaje += `Dirección: ${direccionInput.value}%0A`;
+        // Agregar ingredientes extra si es un producto personalizado
+        if (item.personalizado && item.ingredientes && item.ingredientes.length > 0) {
+            const ingredientesActivos = item.ingredientes.filter(ing => ing.cantidad > 0);
+            if (ingredientesActivos.length > 0) {
+                mensaje += `%0A  *Extras:* `;
+                ingredientesActivos.forEach((ing, index) => {
+                    mensaje += `${ing.nombre} (${ing.cantidad})`;
+                    if (index < ingredientesActivos.length - 1) {
+                        mensaje += ', ';
+                    }
+                });
+            }
         }
         
-        mensaje += `%0A¡Gracias!`;
-        
-        const spinner = document.getElementById('loading-spinner');
-        if (spinner) spinner.style.display = 'flex';
-        
-        setTimeout(() => {
-            window.open(`https://wa.me/+593987646410?text=${mensaje}`, '_blank');
-            
-            if (spinner) spinner.style.display = 'none';
-            confirmModal.hide();
-            
-            localStorage.removeItem('carrito');
-            window.dispatchEvent(new Event('carritoActualizado'));
-            
-            window.location.href = 'confirmacion.html';
-        }, 1000);
+        mensaje += `%0A`;
+    });
+    
+    mensaje += `%0ASubtotal: $${subtotal.toFixed(2)}%0A`;
+    mensaje += `Envío: $${envio.toFixed(2)}%0A`;
+    mensaje += `Total: $${total.toFixed(2)}%0A%0A`;
+    mensaje += `Tipo de entrega: ${tipoEntrega.options[tipoEntrega.selectedIndex].text}%0A`;
+    mensaje += `Método de pago: ${metodoPago.options[metodoPago.selectedIndex].text}%0A`;
+    
+    if (tipoEntrega.value === 'domicilio' && direccionInput.value) {
+        mensaje += `Dirección: ${direccionInput.value}%0A`;
     }
-
+    
+    mensaje += `%0A¡Gracias!`;
+    
+    const spinner = document.getElementById('loading-spinner');
+    if (spinner) spinner.style.display = 'flex';
+    
+    setTimeout(() => {
+        window.open(`https://wa.me/+593987646410?text=${mensaje}`, '_blank');
+        
+        if (spinner) spinner.style.display = 'none';
+        confirmModal.hide();
+        
+        localStorage.removeItem('carrito');
+        window.dispatchEvent(new Event('carritoActualizado'));
+        
+        window.location.href = 'confirmacion.html';
+    }, 1000);
+}
     // Inicializar
     renderCarrito();
     window.addEventListener('carritoActualizado', renderCarrito);

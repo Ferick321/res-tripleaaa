@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Lista de ingredientes disponibles
     const ingredientesDisponibles = [
-        { nombre: 'Pollo', precio: 1.00 },
-        { nombre: 'Carne', precio: 1.25 },
-        { nombre: 'Salchicha', precio: 0.75 },
-        { nombre: 'Huevo', precio: 0.50 },
-        { nombre: 'Papas', precio: 0.75 }
+        { nombre: 'Presa de Pollo', precio: 1.25 },
+        { nombre: 'Carne', precio: 0.50 },
+        { nombre: 'Salchicha ', precio: 0.25 },
+        { nombre: 'Huevo', precio: 0.30 },
+        { nombre: 'Porción de Papas', precio: 1.00 }
     ];
     
     // Event listeners para botones de personalizar
